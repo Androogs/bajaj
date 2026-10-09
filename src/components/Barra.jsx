@@ -6,7 +6,7 @@ import WaBoton from './WaBoton.jsx'
 import { LINEAS } from '../data/motos.js'
 import { SUMOTO } from '../data/sumoto.js'
 import { porLinea, pesos, precioDesde, desdeLinea } from '../utils/catalogo.js'
-import { IconDown, IconMenu, IconClose, IconPin, IconMail, IconArrow, LineaIcon } from './Icons.jsx'
+import { IconDown, IconMenu, IconClose, IconPin, IconMail, IconArrow } from './Icons.jsx'
 import { useSede } from './SedeSelector.jsx'
 
 const PAGINAS = [
@@ -87,11 +87,9 @@ function Mega({ visible }) {
       <div className="wrap mega__in">
         <ul className="mega__lineas">
           {LINEAS.map((l) => {
-            const Ic = LineaIcon[l.id]
             return (
               <li key={l.id}>
                 <Link to={`/motos?linea=${l.id}`} onMouseEnter={() => setLinea(l.id)} className={linea === l.id ? 'is-on' : ''}>
-                  <Ic width="26" height="26" />
                   <span><b>{l.nombre}</b><small>{porLinea(l.id).length} {porLinea(l.id).length === 1 ? 'modelo' : 'modelos'} · desde {pesos(desdeLinea(l.id))}</small></span>
                 </Link>
               </li>

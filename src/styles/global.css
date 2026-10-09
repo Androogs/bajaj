@@ -112,11 +112,10 @@ button { cursor: pointer; }
 .mega.is-visible { opacity: 1; visibility: visible; transform: none; }
 .mega__in { display: grid; grid-template-columns: 290px 1fr; gap: 26px; padding: 24px 0 28px; }
 .mega__lineas { list-style: none; margin: 0; padding: 0 20px 0 0; border-right: 1px solid var(--linea); display: grid; gap: 4px; align-content: start; }
-.mega__lineas a { display: flex; align-items: center; gap: 12px; padding: 10px 12px; color: var(--suave); transition: .2s; }
+.mega__lineas a { display: flex; align-items: center; padding: 10px 12px; color: var(--suave); transition: .2s; }
 .mega__lineas a b { display: block; font-family: var(--display); font-size: 1.3rem; text-transform: uppercase; color: #fff; letter-spacing: .04em; }
 .mega__lineas a small { font-size: .78rem; }
 .mega__lineas a.is-on { background: linear-gradient(90deg, rgba(30,134,239,.18), transparent); box-shadow: inset 3px 0 0 var(--azul-400); color: #c3cedd; }
-.mega__lineas a.is-on svg { color: var(--azul-400); }
 .mega__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; align-content: start; }
 .mega__moto { padding: 10px; border: 1px solid transparent; transition: .2s; }
 .mega__moto:hover { border-color: var(--linea); background: rgba(255,255,255,.03); }
@@ -253,8 +252,12 @@ button { cursor: pointer; }
 .ph__in { position: relative; display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: center; min-height: 290px; padding: 34px 0 40px; }
 .ph__lead { max-width: 60ch; color: #c5d4ea; }
 .ph__lead p { margin: 0; }
-.motos__compare-link { width: fit-content; margin-top: 18px; padding: 15px 28px; font-size: 1.2rem; box-shadow: 0 8px 24px rgba(216,30,5,.35); }
+.motos__compare-link { width: fit-content; margin-top: 18px; padding: 15px 28px; font-size: 1.2rem; box-shadow: 0 8px 24px rgba(216,30,5,.35); animation: motos-compare-move .8s ease-in-out infinite alternate; }
 .motos__compare-link:hover { gap: 12px; box-shadow: 0 12px 30px rgba(216,30,5,.5); }
+@keyframes motos-compare-move {
+  from { transform: translateY(0); }
+  to { transform: translateY(7px); }
+}
 .ph__act { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
 .ph__foto { max-height: 290px; width: 100%; object-fit: contain; filter: drop-shadow(0 25px 30px rgba(0,0,0,.6)) drop-shadow(0 0 30px rgba(30,134,239,.25)); animation: bike .7s var(--ease); }
 .crumbs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; font-size: .82rem; color: var(--suave); }
@@ -531,4 +534,5 @@ button { cursor: pointer; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
+  .motos__compare-link { animation-duration: .8s !important; }
 }
